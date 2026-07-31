@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #FAF7F2;
+  --color-bg-secondary: #F5EFE6;
+  --color-primary: #B08D57;
+  --color-accent: #C7A97B;
+  --color-text: #2D2926;
+  --color-text-secondary: #6B645C;
+  --color-card: #FFFFFF;
+  --color-border: #E7DED2;
+  --color-coffee: #8A6A44;
+  --color-coffee-hover: #7A5B39;
+  --font-space-grotesk: "Space Grotesk", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Subtle grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(176, 141, 87, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176, 141, 87, 0.15) 1px, transparent 1px);
+  background-size: 72px 72px;
+}
+
+/* Soft feathered edge for the portrait cutout */
+.portrait-feather {
+  -webkit-mask-image: radial-gradient(ellipse 94% 92% at 50% 45%, black 0%, black 80%, transparent 100%);
+  mask-image: radial-gradient(ellipse 94% 92% at 50% 45%, black 0%, black 80%, transparent 100%);
+}
+
+/* Noise texture */
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Thin elegant scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F5EFE6;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(176, 141, 87, 0.25);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(176, 141, 87, 0.45);
+}
