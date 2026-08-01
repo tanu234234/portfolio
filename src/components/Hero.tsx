@@ -216,7 +216,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Portrait */}
-          <div className="hidden lg:block lg:col-span-5 relative">
+         <div className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center">
             <motion.div
               style={{ y: portraitY }}
               className="relative"
